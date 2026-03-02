@@ -488,6 +488,13 @@ ul {
     font-style: italic;
 }
 
+video,
+iframe {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .section-proyectos {
     background: hsl(220 14% 97%);
     padding: 5rem 0;

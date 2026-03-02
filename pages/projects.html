@@ -39,7 +39,10 @@
             </a>
 
             <h1 style="display:none;">Proyectos de Juliana Melo</h1>
-
+             <button class="menu-toggle" aria-label="Abrir menú">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="nav-overlay"></div>
             <nav>
                 <ul>
                     <li><a href="../index.html#perfil">Perfil</a></li>
@@ -254,5 +257,36 @@
 
         </div>
     </footer>
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.site-header nav');
+        const overlay = document.querySelector('.nav-overlay');
+        const navLinks = document.querySelectorAll('.site-header nav a');
+
+        function openMenu() {
+            nav.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeMenu() {
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        toggle.addEventListener('click', () => {
+            if (nav.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        overlay.addEventListener('click', closeMenu);
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    </script>
 </body>
+
 </html>

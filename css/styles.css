@@ -578,12 +578,14 @@ ul {
     overflow: hidden;
     border: 1px solid hsl(220 13% 91%);
     box-shadow: 0 4px 24px hsl(220 20% 10% / 0.05);
+    overflow-x: auto;
 }
 
 .tarifas-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.95rem;
+    min-width: 600px;
 }
 
 .tarifas-table thead {
@@ -689,8 +691,8 @@ ul {
     margin-bottom: 1rem;
 }
 
-.aside-grid h3 i{
-    color: hsl(104, 39%, 50%); 
+.aside-grid h3 i {
+    color: hsl(104, 39%, 50%);
     margin-right: 0.5rem;
 }
 
@@ -877,7 +879,8 @@ ul {
 }
 
 .footer-profession {
-    font-size: 0.85rem; margin-top: 0.35rem;
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
 }
 
 .footer-contact a {
@@ -983,14 +986,36 @@ ul {
         margin: 0 auto;
     }
 
+    .timeline {
+        padding-left: 1.5rem;
+    }
+
+    .timeline-item {
+        padding: 1.25rem;
+    }
+
+    .timeline-item::before {
+        left: -1.8rem;
+    }
+
+    .timeline-image img {
+        width: 100%;
+    }
+
     .aside-grid,
     .contacto-grid {
         grid-template-columns: 1fr;
     }
 
+    .proyectos-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+        margin-top: 2.5rem;
+    }
+
     .footer-top {
         flex-direction: column;
-        text-align: center;
     }
 
     .hero-title {
@@ -1000,6 +1025,77 @@ ul {
     .tarifas-grid {
         grid-template-columns: 1fr;
     }
+}
+
+@media (max-width: 900px) {
+    .perfil-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .perfil-photo-card {
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .site-header nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 260px;
+        height: 100vh;
+        background: #fff;
+        padding: 5rem 1.5rem;
+        transition: right 0.3s ease;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .site-header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .site-header nav.active {
+        right: 0;
+    }
+
+    .nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 90;
+    }
+
+    .nav-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .site-header nav {
+        z-index: 100;
+    }
+
+    .proyectos-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+        margin-top: 2.5rem;
+    }
+
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
 }
 
 /* ---------- ANIMATIONS ---------- */
